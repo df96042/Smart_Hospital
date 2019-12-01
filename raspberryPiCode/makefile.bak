@@ -1,0 +1,19 @@
+mysql = -L ./mysqlconnector/lib -lmysqlclient -I ./mysqlconnector/include
+
+OBJECTS = main.o ICU.o patient.o fever.o vegetative_state.o nurse.o
+
+test : $(OBJECTS)
+	g++ -o smarthospital -Wall -g -std=c++0x -pthread -lwiringPi $(OBJECTS) 
+
+main.o : common.h main.cpp
+	g++ -c main.cpp -std=c++11 $(mysql)
+ICU.o : common.h ICU.cpp
+	g++ -c ICU.cpp -std=c++11 $(mysql)
+patient.o: common.h patient.cpp
+	g++ -c patient.cpp -std=c++11 $(mysql)
+fever.o : common.h fever.cpp
+	g++ -c fever.cpp -std=c++11 $(mysql)
+vegetative_state.o : common.h vegetative_state.cpp
+	g++ -c vegetative_state.cpp -std=c++11 $(mysql)
+nurse.o: common.h nurse.cpp
+	g++ -c nurse.cpp -std=c++11 $(mysql)
