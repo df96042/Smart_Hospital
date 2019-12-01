@@ -1,0 +1,1 @@
+{"type":"record","name":"Configuration","namespace":"org.kaaproject.kaa.schema.sampl","fields":[{"name":"samplePeriod","type":"int","by_default":1}],"version":1,"displayName":"Configuration"}
